@@ -7,5 +7,57 @@ body {
     margin-bottom: 1rem;
     width: 100%;
     border-radius: 4px;
-    
+    background: #6545B2;
+    font-size: 4rem;
+    min-width: 80rem;
+}
+
+.choice-container:hover {
+   cursor: pointer;
+   box-shadow: 0 0.4rem 1.4rem 0 rgba(101, 80, 178, 0.5);
+   transform: scale(1.05);
+   transform: tranform 100ms;
+}
+
+.choice-prefix {
+    padding: 1rem 1.5rem;
+    color: #fff
+}
+
+.choice-text {
+    padding: 1rem;
+    width: 100%;
+}
+
+
+.correct {
+    background: linear-gradient(32deg , rgba(5, 153, 67, 1) 0%, rgba(0, 156, 65, 1) 100%);
+}
+
+.incorrect {
+    background: linear-gradient(32deg , rgba(231, 0, 18, 1) 0%, rgba(255, 1, 100, 1) 100%);
+}
+
+
+#hud {
+    display:inline-flex;
+    justify-content:space-between;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .choice-container{
+        min-width: 40rem;
+    }
 }
