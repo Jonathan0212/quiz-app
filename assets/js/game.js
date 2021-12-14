@@ -65,7 +65,7 @@ startGame = () => {
 getNewQuestion = () => {
     if(avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
-        return window.location.assign('/endquiz.html')
+        return window.location.assign('/end.html')
     }
 
     questionCounter++;
@@ -101,7 +101,6 @@ choices.forEach(choice => {
         }
 
         if(classToApply === 'incorrect') {
-            time -=25;
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
@@ -115,7 +114,7 @@ choices.forEach(choice => {
 
 incrementScore = num => {
     score +=num;
-    score.Text.innerText =  score;
+    scoreText.innerText =  score;
 };
 
 startGame();
