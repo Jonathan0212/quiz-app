@@ -7,4 +7,4 @@ In this application, it has a series of questions when getting it incorrect the 
 * CSS
 * JavaScript
 
-[Link to Application](https://www.google.com)
+[Link to Application](https://jonathan0212.github.io/quiz-app/)
