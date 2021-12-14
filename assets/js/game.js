@@ -6,7 +6,7 @@ const scoreText = document.querySelector('#score');
 
 
 let currentQuestion = {};
-let acceptingAnswers= true;
+let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let avaliableQuestions = [];
@@ -49,32 +49,31 @@ let questions = [
         choice4: 'Episode 4 A New Hope',
         answer: 2,
 
-    }
+    },
 ];
 
 const SCORE_POINTS = 100;
 const MAX_QUESTIONS = 4;
 
 startGame = () => {
-    questionCounter = 0
+    questionCounter = 0;
     score = 0;
     avaliableQuestions = [...questions];
-    getNewQuestion()
-}
+    getNewQuestion();
+};
 
 getNewQuestion = () => {
-    if(avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS || time === 0) {
+    if(avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
-
         return window.location.assign('/endquiz.html')
     }
 
-    questionCounter++
-    progressText.innerText ='Question ${questionCounter} of ${MAX_QUESTIONS}'
+    questionCounter++;
+    progressText.innerText =`Question ${questionCounter} of ${MAX_QUESTIONS}`;
 
-    const questionsIndex = Math.floor(Math.random() * avaliableQuestions.length)
-    currentQuestion = avaliableQuestions[questionsIndex]
-    question.innerText = currentQuestion.question
+    const questionsIndex = Math.floor(Math.random() * avaliableQuestions.length);
+    currentQuestion = avaliableQuestions[questionsIndex];
+    question.innerText = currentQuestion.question;
 
     choices.forEach(choice => {
         const number = choice.dataset['number'];
@@ -88,15 +87,21 @@ getNewQuestion = () => {
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if(!acceptingAnswers) return
+
+
         acceptingAnswers =  false
         const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
+        const selectedAnswer = selectedChoice.dataset['number'];
 
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 
         'incorrect'
 
         if(classToApply === 'correct') {
             incrementScore(SCORE_POINTS)
+        }
+
+        if(classToApply === 'incorrect') {
+            time -=25;
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
