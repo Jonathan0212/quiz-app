@@ -2,6 +2,24 @@ const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
 const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
+const startBtn =document.getElementById('start');
+
+// timer
+const startingMinutes = 1.3;
+let time= startingMinutes * 60;
+
+const countdownEl = document.getElementById('countdown');
+
+function updateCountdown() {
+    const minutes= Math.floor(time / 60);
+    let seconds = time * 60;
+
+    countdownEl.innerHTML = `${minutes}: ${seconds}`
+    time--;
+
+    time=time <0 ? 0 :time;
+}
+
 
 
 
@@ -63,7 +81,7 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-    if(avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    if(avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS || time === 0) {
         localStorage.setItem('mostRecentScore', score)
         return window.location.assign('/end.html')
     }
