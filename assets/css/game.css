@@ -40,8 +40,8 @@ body {
 
 
 #hud {
-    display:inline-flex;
-    justify-content:space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .hud-prefix {
@@ -52,8 +52,6 @@ body {
 .hud-main-text {
     text-align: center;
 }
-
-
 
 
 @media screen and (max-width: 768px) {
