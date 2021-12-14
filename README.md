@@ -1,1 +1,10 @@
-# quiz-app
+# Quiz Application
+In this application, it has a series of questions when getting it incorrect the app will deduct time. If you choose the correct answer your score will go up. At the end it has a high score form where it will save your ninformation! 
+
+## applications used 
+
+* HTML
+* CSS
+* JavaScript
+
+Deployed site: 
